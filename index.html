@@ -205,92 +205,590 @@
         .voice-duration { font-size: 13px; font-weight: 500; color: var(--text-secondary); }
         .message-bubble.user .voice-duration { color: #3e6224; }
 
-        /* === 气泡主题样式 === */
-        .message-bubble.user .content { background-color: rgba(160, 233, 86, 0.75); color: #1a3d00; border-radius: 20px 8px 20px 20px; }
-        .message-bubble.ai .content { background-color: rgba(255, 255, 255, 0.7); color: var(--text-primary); border-radius: 8px 20px 20px 20px; }
-        #chat-messages[data-theme="pink_blue"] .message-bubble.user .content { background-color: #FADADD; color: #5D3A3A; }
-        #chat-messages[data-theme="pink_blue"] .message-bubble.ai .content { background-color: #D6EAF8; color: #283747; }
-        #chat-messages[data-theme="blue_white"] .message-bubble.user .content { background-color: #cce5ff; color: #004085; }
-        #chat-messages[data-theme="blue_white"] .message-bubble.ai .content { background-color: #f8f9fa; color: #383d41; }
-        #chat-messages[data-theme="purple_yellow"] .message-bubble.user .content { background-color: #E6E6FA; color: #4B0082; }
-        #chat-messages[data-theme="purple_yellow"] .message-bubble.ai .content { background-color: #FFFACD; color: #5C4033; }
-        #chat-messages[data-theme="black_white"] .message-bubble.user .content { background-color: #343a40; color: #f8f9fa; }
-        #chat-messages[data-theme="black_white"] .message-bubble.ai .content { background-color: #f8f9fa; color: #343a40; }
-        #chat-messages[data-theme="yellow_white"] .message-bubble.user .content { background-color: #FFEB3B; color: #5D4037; }
-        #chat-messages[data-theme="yellow_white"] .message-bubble.ai .content { background-color: #f8f9fa; color: #383d41; }
-        #chat-messages[data-theme="red_black"] .message-bubble.user .content { background-color: #C62828; color: #FFFFFF; }
-        #chat-messages[data-theme="red_black"] .message-bubble.ai .content { background-color: #212121; color: #FFFFFF; }
-        #chat-messages[data-theme="blue_yellow"] .message-bubble.user .content { background-color: #A0D2EB; color: #153243; }
-        #chat-messages[data-theme="blue_yellow"] .message-bubble.ai .content { background-color: #FEF9E7; color: #5D4037; }
-        #chat-messages[data-theme="pink_yellow"] .message-bubble.user .content { background-color: #F8BBD0; color: #5B2C6F; }
-        #chat-messages[data-theme="pink_yellow"] .message-bubble.ai .content { background-color: #FEF9E7; color: #5D4037; }
-        #chat-messages[data-theme="pink_purple"] .message-bubble.user .content { background-color: #F8BBD0; color: #5B2C6F; }
-        #chat-messages[data-theme="pink_purple"] .message-bubble.ai .content { background-color: #E6E6FA; color: #4B0082; }
-        #chat-messages[data-theme="gray_white"] .message-bubble.user .content { background-color: #e9ecef; color: #495057; }
-        #chat-messages[data-theme="gray_white"] .message-bubble.ai .content { background-color: #f8f9fa; color: #383d41; }
-        #chat-messages[data-theme="blue_green"] .message-bubble.user .content { background-color: #d1ecf1; color: #0c5460; }
-        #chat-messages[data-theme="blue_green"] .message-bubble.ai .content { background-color: #d4edda; color: #155724; }
-        #chat-messages[data-theme="pink_white"] .message-bubble.user .content { background-color: #fce4ec; color: #880e4f; }
-        #chat-messages[data-theme="pink_white"] .message-bubble.ai .content { background-color: #f8f9fa; color: #383d41; }
-        #chat-messages[data-theme="pink_black"] .message-bubble.user .content { background-color: #F8BBD0; color: #5B2C6F; }
-        #chat-messages[data-theme="pink_black"] .message-bubble.ai .content { background-color: #343a40; color: #f8f9fa; }
-        #chat-messages[data-theme="pink_green"] .message-bubble.user .content { background-color: #F8BBD0; color: #5B2C6F; }
-        #chat-messages[data-theme="pink_green"] .message-bubble.ai .content { background-color: #C8E6C9; color: #1B5E20; }
-        #chat-messages[data-theme="green_black"] .message-bubble.user .content { background-color: #d4edda; color: #155724; }
-        #chat-messages[data-theme="green_black"] .message-bubble.ai .content { background-color: #343a40; color: #f8f9fa; }
+           /* === 气泡主题样式 === */
+.message-bubble .content {
+    position: relative;
+    padding: 12px;
+    border-radius: 25px;
+    
+    /* 立体阴影系统 */
+    box-shadow:
+        0 6px 8px rgba(0, 0, 0, 0.226), 
+        inset 0 4px 15px rgba(255, 255, 255, 0.5), 
+        inset 0 4px 7px rgba(0, 0, 0, 0.4);
+        
+    /* 新增图片元素 */
+    &::after {
+        content: "";
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 15px; /* 缩小尺寸 */
+        height: 15px; /* 缩小尺寸 */
+        background-image: url("https://sharkpan.xyz/f/Z0BZiW/%E6%9C%AA%E6%A0%87%E9%A2%98-15.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+        z-index: 1;
+    }
+}
 
-        #transfer-btn { font-weight: bold; }
-        #transfer-modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); display: none; align-items: center; justify-content: center; z-index: 1001; }
-        #transfer-modal.visible { display: flex; }
-        .transfer-content { background-color: #fff0f5; border-radius: 20px; width: 290px; padding: 20px; box-shadow: 0 5px 25px rgba(255, 105, 180, 0.3); text-align: center; background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" opacity="0.05"><path d="M50,4 C35,4 28,15 28,24 C28,33 35,32 35,40 C35,48 28,49 28,57 C28,65 35,66 35,74 C35,82 28,83 28,91 C28,99 35,100 50,100 C65,100 72,99 72,91 C72,83 65,82 65,74 C65,66 72,65 72,57 C72,49 65,48 65,40 C65,32 72,33 72,24 C72,15 65,4 50,4 Z" fill="%23FF69B4"/></svg>'); background-repeat: no-repeat; background-position: top right; background-size: 80px; }
-        .transfer-header { font-size: 20px; font-weight: bold; color: #a35c7b; margin-bottom: 20px; }
-        .transfer-input-group { margin-bottom: 15px; text-align: left; }
-        .transfer-input-group label { display: block; font-size: 14px; color: #ff85b3; margin-bottom: 5px; font-weight: 500; }
-        .transfer-input-group input { width: 100%; padding: 12px; border-radius: 10px; border: 2px solid #ffcce0; background-color: #fff; font-size: 16px; box-sizing: border-box; }
-        .transfer-input-group input:focus { border-color: #ff85b3; outline: none; }
-        .transfer-actions { display: flex; justify-content: space-between; gap: 10px; }
-        .transfer-actions button { flex: 1; padding: 12px; border: none; border-radius: 10px; font-size: 16px; font-weight: bold; cursor: pointer; transition: transform 0.2s; }
-        .transfer-actions button:active { transform: scale(0.95); }
-        #transfer-cancel-btn { background-color: #ffdde9; color: #a35c7b; }
-        #transfer-confirm-btn { background-color: #ff85b3; color: white; }
-        .message-bubble.is-transfer .content { padding: 0; background: transparent; box-shadow: none; border: none; backdrop-filter: none; -webkit-backdrop-filter: none; cursor: pointer; }
-        .transfer-card { width: 200px; border-radius: 12px; padding: 12px; color: white; position: relative; overflow: hidden; }
-        .transfer-card::before { content: '🐾'; position: absolute; right: 10px; top: 5px; font-size: 30px; opacity: 0.2; transform: rotate(15deg); }
-        .message-bubble.user .transfer-card { background: radial-gradient(circle at top left, #ffc5d5, #ff85b3); }
-        .message-bubble.ai .transfer-card { background: radial-gradient(circle at top left, #a1c4fd, #c2e9fb); }
-        .transfer-title { font-size: 16px; font-weight: 600; display: flex; align-items: center; gap: 6px; margin-bottom: 8px; }
-        .transfer-amount { font-size: 28px; font-weight: bold; margin-bottom: 4px; }
-        .transfer-note { font-size: 13px; opacity: 0.9; border-top: 1px solid rgba(255,255,255,0.3); padding-top: 8px; margin-top: 8px; word-break: break-all; }
+/* 默认用户气泡 */
+.message-bubble.user .content {
+    background: radial-gradient(
+        ellipse at 100% 20%,
+        rgba(126, 185, 67, 0.7) 0%,    /* 基于原色#a0e956加深 */
+        rgba(160, 233, 86, 0.5) 40%,   /* 原色 */
+        rgba(255, 255, 255, 0.4) 100%
+    );
+    color: #1a3d00;
+    border-radius: 25px !important; /* 覆盖原有圆角 */
+}
+
+/* 默认AI气泡 */
+.message-bubble.ai .content {
+    background: radial-gradient(
+        ellipse at 100% 20%,
+        rgba(180, 180, 180, 0.7) 0%,   /* 基于白色加深 */
+        rgba(255, 255, 255, 0.5) 40%,
+        rgba(255, 255, 255, 0.4) 100%
+    );
+    color: var(--text-primary);
+    border-radius: 25px !important; /* 覆盖原有圆角 */
+}
+
+/* 各主题气泡的渐变背景重定义 */
+#chat-messages[data-theme="pink_blue"] .message-bubble.user .content { 
+    background: radial-gradient(ellipse at 100% 20%, rgba(193, 172, 174, 0.7) 0%, rgba(250, 218, 221, 0.5) 40%, rgba(255, 255, 255, 0.4) 100%);
+    color: #5D3A3A; 
+}
+#chat-messages[data-theme="pink_blue"] .message-bubble.ai .content { 
+    background: radial-gradient(ellipse at 100% 20%, rgba(169, 191, 209, 0.7) 0%, rgba(214, 234, 248, 0.5) 40%, rgba(255, 255, 255, 0.4) 100%);
+    color: #283747; 
+}
+/* 蓝色+白色主题 */
+#chat-messages[data-theme="blue_white"] .message-bubble.user .content { 
+    background: radial-gradient(ellipse at 100% 20%, rgba(142, 186, 230, 0.7) 0%, rgba(204, 229, 255, 0.5) 40%, rgba(255, 255, 255, 0.4) 100%);
+    color: #004085; 
+}
+#chat-messages[data-theme="blue_white"] .message-bubble.ai .content { 
+    background: radial-gradient(ellipse at 100% 20%, rgba(223, 223, 223, 0.7) 0%, rgba(248, 249, 250, 0.5) 40%, rgba(255, 255, 255, 0.4) 100%);
+    color: #383d41; 
+}
+/* 紫色+黄色主题 */
+#chat-messages[data-theme="purple_yellow"] .message-bubble.user .content { 
+    background: radial-gradient(ellipse at 100% 20%, rgba(191, 191, 222, 0.7) 0%, rgba(230, 230, 250, 0.5) 40%, rgba(255, 255, 255, 0.4) 100%);
+    color: #4B0082; 
+}
+#chat-messages[data-theme="purple_yellow"] .message-bubble.ai .content { 
+    background: radial-gradient(ellipse at 100% 20%, rgba(230, 230, 189, 0.7) 0%, rgba(255, 250, 205, 0.5) 40%, rgba(255, 255, 255, 0.4) 100%);
+    color: #5C4033; 
+}
+/* 其他主题以同样模式重定义 */
+/* 黑色+白色主题 */
+#chat-messages[data-theme="black_white"] .message-bubble.user .content { 
+    background: radial-gradient(ellipse at 100% 20%, rgba(79, 79, 79, 0.7) 0%, rgba(52, 58, 64, 0.5) 40%, rgba(255, 255, 255, 0.4) 100%);
+    color: #f8f9fa; 
+}
+#chat-messages[data-theme="black_white"] .message-bubble.ai .content { 
+    background: radial-gradient(ellipse at 100% 20%, rgba(223, 223, 223, 0.7) 0%, rgba(248, 249, 250, 0.5) 40%, rgba(255, 255, 255, 0.4) 100%);
+    color: #343a40; 
+}
+/* 黄色+白色主题 */
+#chat-messages[data-theme="yellow_white"] .message-bubble.user .content { 
+    background: radial-gradient(ellipse at 100% 20%, rgba(230, 209, 45, 0.7) 0%, rgba(255, 235, 59, 0.5) 40%, rgba(255, 255, 255, 0.4) 100%);
+    color: #5D4037; 
+}
+#chat-messages[data-theme="yellow_white"] .message-bubble.ai .content { 
+    background: radial-gradient(ellipse at 100% 20%, rgba(223, 223, 223, 0.7) 0%, rgba(248, 249, 250, 0.5) 40%, rgba(255, 255, 255, 0.4) 100%);
+    color: #383d41; 
+}
+/* 红色+黑色主题 */
+#chat-messages[data-theme="red_black"] .message-bubble.user .content { 
+    background: radial-gradient(ellipse at 100% 20%, rgba(167, 38, 38, 0.7) 0%, rgba(198, 40, 40, 0.5) 40%, rgba(255, 255, 255, 0.4) 100%);
+    color: #FFFFFF; 
+}
+#chat-messages[data-theme="red_black"] .message-bubble.ai .content { 
+    background: radial-gradient(ellipse at 100% 20%, rgba(65, 65, 65, 0.7) 0%, rgba(33, 33, 33, 0.5) 40%, rgba(255, 255, 255, 0.4) 100%);
+    color: #FFFFFF; 
+}
+/* 蓝色+黄色主题 */
+#chat-messages[data-theme="blue_yellow"] .message-bubble.user .content { 
+    background: radial-gradient(ellipse at 100% 20%, rgba(141, 186, 219, 0.7) 0%, rgba(160, 210, 235, 0.5) 40%, rgba(255, 255, 255, 0.4) 100%);
+    color: #153243; 
+}
+#chat-messages[data-theme="blue_yellow"] .message-bubble.ai .content { 
+    background: radial-gradient(ellipse at 100% 20%, rgba(230, 230, 189, 0.7) 0%, rgba(254, 249, 231, 0.5) 40%, rgba(255, 255, 255, 0.4) 100%);
+    color: #5D4037; 
+}
+/* 粉色+黄色主题 */
+#chat-messages[data-theme="pink_yellow"] .message-bubble.user .content { 
+    background: radial-gradient(ellipse at 100% 20%, rgba(221, 179, 193, 0.7) 0%, rgba(248, 187, 208, 0.5) 40%, rgba(255, 255, 255, 0.4) 100%);
+    color: #5B2C6F; 
+}
+#chat-messages[data-theme="pink_yellow"] .message-bubble.ai .content { 
+    background: radial-gradient(ellipse at 100% 20%, rgba(230, 230, 189, 0.7) 0%, rgba(254, 249, 231, 0.5) 40%, rgba(255, 255, 255, 0.4) 100%);
+    color: #5D4037; 
+}
+/* 粉色+紫色主题 */
+#chat-messages[data-theme="pink_purple"] .message-bubble.user .content { 
+    background: radial-gradient(ellipse at 100% 20%, rgba(221, 179, 193, 0.7) 0%, rgba(248, 187, 208, 0.5) 40%, rgba(255, 255, 255, 0.4) 100%);
+    color: #5B2C6F; 
+}
+#chat-messages[data-theme="pink_purple"] .message-bubble.ai .content { 
+    background: radial-gradient(ellipse at 100% 20%, rgba(191, 191, 222, 0.7) 0%, rgba(230, 230, 250, 0.5) 40%, rgba(255, 255, 255, 0.4) 100%);
+    color: #4B0082; 
+}
+/* 灰色+白色主题 */
+#chat-messages[data-theme="gray_white"] .message-bubble.user .content { 
+    background: radial-gradient(ellipse at 100% 20%, rgba(198, 206, 213, 0.7) 0%, rgba(233, 236, 239, 0.5) 40%, rgba(255, 255, 255, 0.4) 100%);
+    color: #495057; 
+}
+#chat-messages[data-theme="gray_white"] .message-bubble.ai .content { 
+    background: radial-gradient(ellipse at 100% 20%, rgba(223, 223, 223, 0.7) 0%, rgba(248, 249, 250, 0.5) 40%, rgba(255, 255, 255, 0.4) 100%);
+    color: #383d41; 
+}
+/* 蓝色+绿色主题 */
+#chat-messages[data-theme="blue_green"] .message-bubble.user .content { 
+    background: radial-gradient(ellipse at 100% 20%, rgba(169, 206, 213, 0.7) 0%, rgba(209, 236, 241, 0.5) 40%, rgba(255, 255, 255, 0.4) 100%);
+    color: #0c5460; 
+}
+#chat-messages[data-theme="blue_green"] .message-bubble.ai .content { 
+    background: radial-gradient(ellipse at 100% 20%, rgba(177, 212, 184, 0.7) 0%, rgba(212, 237, 218, 0.5) 40%, rgba(255, 255, 255, 0.4) 100%);
+    color: #155724; 
+}
+/* 粉色+白色主题 */
+#chat-messages[data-theme="pink_white"] .message-bubble.user .content { 
+    background: radial-gradient(ellipse at 100% 20%, rgba(224, 189, 199, 0.7) 0%, rgba(252, 228, 236, 0.5) 40%, rgba(255, 255, 255, 0.4) 100%);
+    color: #880e4f; 
+}
+#chat-messages[data-theme="pink_white"] .message-bubble.ai .content { 
+    background: radial-gradient(ellipse at 100% 20%, rgba(223, 223, 223, 0.7) 0%, rgba(248, 249, 250, 0.5) 40%, rgba(255, 255, 255, 0.4) 100%);
+    color: #383d41; 
+}
+/* 粉色+黑色主题 */
+#chat-messages[data-theme="pink_black"] .message-bubble.user .content { 
+    background: radial-gradient(ellipse at 100% 20%, rgba(221, 179, 193, 0.7) 0%, rgba(248, 187, 208, 0.5) 40%, rgba(255, 255, 255, 0.4) 100%);
+    color: #5B2C6F; 
+}
+#chat-messages[data-theme="pink_black"] .message-bubble.ai .content { 
+    background: radial-gradient(ellipse at 100% 20%, rgba(79, 79, 79, 0.7) 0%, rgba(52, 58, 64, 0.5) 40%, rgba(255, 255, 255, 0.4) 100%);
+    color: #f8f9fa; 
+}
+/* 粉色+绿色主题 */
+#chat-messages[data-theme="pink_green"] .message-bubble.user .content { 
+    background: radial-gradient(ellipse at 100% 20%, rgba(221, 179, 193, 0.7) 0%, rgba(248, 187, 208, 0.5) 40%, rgba(255, 255, 255, 0.4) 100%);
+    color: #5B2C6F; 
+}
+#chat-messages[data-theme="pink_green"] .message-bubble.ai .content { 
+    background: radial-gradient(ellipse at 100% 20%, rgba(177, 203, 178, 0.7) 0%, rgba(200, 230, 201, 0.5) 40%, rgba(255, 255, 255, 0.4) 100%);
+    color: #1B5E20; 
+}
+/* 绿色+黑色主题 */
+#chat-messages[data-theme="green_black"] .message-bubble.user .content { 
+    background: radial-gradient(ellipse at 100% 20%, rgba(177, 212, 184, 0.7) 0%, rgba(212, 237, 218, 0.5) 40%, rgba(255, 255, 255, 0.4) 100%);
+    color: #155724; 
+}
+#chat-messages[data-theme="green_black"] .message-bubble.ai .content { 
+    background: radial-gradient(ellipse at 100% 20%, rgba(79, 79, 79, 0.7) 0%, rgba(52, 58, 64, 0.5) 40%, rgba(255, 255, 255, 0.4) 100%);
+    color: #f8f9fa; 
+}
+
+           /* === 转账功能样式 (浅蓝色主题) === */
+#transfer-btn { font-weight: bold; }
+
+#transfer-modal { 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    background-color: rgba(0,0,0,0.3); 
+    display: none; 
+    align-items: center; 
+    justify-content: center; 
+    z-index: 1001; 
+}
+#transfer-modal.visible { display: flex; }
+
+.transfer-content { 
+    background-color: #f0f8ff; /* 浅蓝背景 */
+    border-radius: 16px; 
+    width: 240px; /* 宽度缩小 */
+    padding: 16px; /* 内边距缩小 */
+    box-shadow: 0 4px 20px rgba(135, 206, 235, 0.35); /* 浅蓝阴影 */
+    text-align: center; 
+    background-image: url('https://sharkpan.xyz/f/QEvaF6/%E6%A2%A6%E5%B9%BB%E5%B2%9B%E5%BE%AE%E4%BF%A1mhdsc888%20%28104%29.png'); /* 爱心背景缩小 */
+    background-repeat: no-repeat; 
+    background-position: top right; 
+    background-size: 65px; /* 背景尺寸缩小 */
+}
+
+.transfer-header { 
+    font-size: 9px; /* 字体缩小 */
+    font-weight: bold; 
+    color: #5c7ba3; /* 蓝灰色字体 */
+    margin-bottom: 15px; 
+}
+
+.transfer-input-group { 
+    margin-bottom: 12px; 
+    text-align: left; 
+}
+.transfer-input-group label { 
+    display: block; 
+    font-size: 12px; 
+    color: #5c9de0; /* 浅蓝色标签 */
+    margin-bottom: 3px; 
+    font-weight: 500; 
+}
+.transfer-input-group input { 
+    width: 100%; 
+    padding: 10px; /* 内边距缩小 */
+    border-radius: 8px; 
+    border: 1.5px solid #c1ddf9; /* 浅蓝边框 */
+    background-color: #ffffff; 
+    font-size: 14px; 
+    box-sizing: border-box; 
+}
+.transfer-input-group input:focus { 
+    border-color: #5c9de0; 
+    outline: none; 
+}
+
+.transfer-actions { 
+    display: flex; 
+    justify-content: space-between; 
+    gap: 8px; 
+}
+.transfer-actions button { 
+    flex: 1; 
+    padding: 10px; /* 按钮高度降低 */
+    border: none; 
+    border-radius: 8px; 
+    font-size: 13px; /* 按钮字体缩小 */
+    font-weight: bold; 
+    cursor: pointer; 
+    transition: transform 0.2s; 
+}
+.transfer-actions button:active { 
+    transform: scale(0.95); 
+}
+#transfer-cancel-btn { 
+    background-color: #d9e9fd; /* 浅蓝取消按钮 */
+    color: #5c7ba3; 
+}
+#transfer-confirm-btn { 
+    background-color: #5c9de0; /* 浅蓝色确定按钮 */
+    color: white; 
+}
+
+.message-bubble.is-transfer .content { 
+    padding: 0; 
+    background: transparent; 
+    box-shadow: none; 
+    border: none; 
+    backdrop-filter: none; 
+    -webkit-backdrop-filter: none; 
+    cursor: pointer; 
+}
+
+.transfer-card { 
+    width: 180px; /* 卡片宽度缩小 */
+    border-radius: 10px; 
+    padding: 10px; /* 内边距缩小 */
+    color: #3a7bb4; 
+    position: relative; 
+    overflow: hidden; 
+}
+.transfer-card::before { 
+    content: ""; 
+    position: absolute; 
+    right: 8px; 
+    top: 30px; 
+    width: 35px; /* 图片宽度缩小 */
+    height: 35px; /* 图片高度缩小 */
+    background-image: url("https://sharkpan.xyz/f/a6gdTY/2023-01-27%20000941.png"); /* 指定URL图片 */
+    background-size: contain; 
+    background-repeat: no-repeat; 
+    opacity: 0.8; /* 增加透明度 */
+}
+
+.message-bubble.user .transfer-card { 
+    background: radial-gradient(circle at top left, #e2f0ff, #b0d2f7); /* 浅蓝色渐变 */
+}
+.message-bubble.ai .transfer-card { 
+    background: radial-gradient(circle at top left, #d6ebff, #c2e0ff); /* 更浅的蓝色渐变 */
+}
+
+.transfer-title { 
+    font-size: 11px; 
+    font-weight: 600; 
+    display: flex; 
+    align-items: center; 
+    gap: 5px; 
+    margin-bottom: 6px; 
+}
+.transfer-amount { 
+    font-size: 15px; /* 金额字体缩小 */
+    font-weight: bold; 
+    margin-bottom: 3px; 
+}
+.transfer-note { 
+    font-size: 9px; /* 备注字体缩小 */
+    opacity: 0.9; 
+    border-top: 1px solid rgba(26, 56, 82, 0.15); 
+    padding-top: 6px; 
+    margin-top: 6px; 
+    word-break: break-all; 
+}
+
         
-        @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-        #listen-together-btn img.rotating { animation: spin 2s linear infinite; }
-        #listen-together-btn img.paused { animation-play-state: paused; }
-        #music-player-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 50; display: none; justify-content: center; align-items: center; background-color: rgba(0,0,0,0.3); }
-        #music-player-overlay.visible { display: flex; }
-        .music-player-window { width: 90%; background-color: rgba(255, 255, 255, 0.6); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-radius: 20px; box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); border: 1px solid rgba(255, 255, 255, 0.18); padding: 25px; display: flex; flex-direction: column; align-items: center; color: #1f1f1f; position: relative; }
-        #music-playlist-btn { position: absolute; top: 15px; right: 15px; font-size: 24px; cursor: pointer; color: #333; }
-        #music-time-counter { font-size: 12px; color: #555; margin-bottom: 20px; }
-        #music-player-song-title { font-size: 20px; font-weight: 600; margin-bottom: 5px; text-align: center; }
-        #music-player-artist { font-size: 14px; color: #666; margin-bottom: 25px; }
-        .music-controls { display: flex; align-items: center; justify-content: center; gap: 20px; width: 100%; margin-bottom: 30px; }
-        .music-controls button { background: none; border: none; font-size: 16px; font-weight: bold; cursor: pointer; color: #333; width: 44px; height: 44px; display: flex; justify-content: center; align-items: center; transition: transform 0.2s; }
-        .music-controls button:active { transform: scale(0.9); }
-        .music-controls .play-pause-btn { font-size: 24px; width: 60px; height: 60px; border-radius: 50%; background-color: rgba(0,0,0,0.05); }
-        .music-bottom-actions { display: flex; justify-content: space-between; width: 100%; }
-        .music-bottom-actions button { flex: 1; padding: 12px 0; border: none; border-radius: 10px; font-size: 15px; font-weight: 500; cursor: pointer; }
-        #music-exit-btn { background-color: rgba(255, 100, 100, 0.7); color: white; margin-right: 5px; }
-        #music-return-btn { background-color: rgba(0, 123, 255, 0.7); color: white; margin-left: 5px; }
-        
-        #music-playlist-panel { position: absolute; bottom: 0; left: 0; width: 100%; height: 70%; background-color: rgba(242, 242, 247, 0.9); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); border-top: 1px solid var(--border-color); border-radius: 20px 20px 0 0; z-index: 210; display: flex; flex-direction: column; transform: translateY(100%); transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1); visibility: hidden; }
-        #music-playlist-panel.visible { transform: translateY(0); visibility: visible; }
-        .playlist-header { padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; flex-shrink: 0; border-bottom: 1px solid var(--border-color); font-weight: 600; }
-        .playlist-header .panel-btn { font-size: 16px; cursor: pointer; color: var(--accent-color); }
-        .playlist-body { flex-grow: 1; overflow-y: auto; padding: 10px 0; }
-        .playlist-item { padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; border-bottom: 1px solid #eee; }
-        .playlist-item.playing { background-color: rgba(0, 123, 255, 0.1); }
-        .playlist-item-info .title { font-weight: 500; font-size: 15px; }
-        .playlist-item-info .artist { font-size: 12px; color: #666; }
-        .playlist-item .delete-track-btn { color: #ff3b30; font-size: 20px; padding: 5px; }
+        /* 旋转动画 */ 
+
+@keyframes spin { 
+  from { transform: rotate(0deg); } 
+  to { transform: rotate(360deg); } 
+} 
+
+#listen-together-btn img.rotating { 
+  animation: spin 2s linear infinite; 
+} 
+
+#listen-together-btn img.paused { 
+  animation-play-state: paused; 
+} 
+
+/* 音乐播放器覆盖层 */ 
+#music-player-overlay { 
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  width: 100%; 
+  height: 100%; 
+  z-index: 50; 
+  display: none; 
+  justify-content: center; 
+  align-items: center; 
+  background-color: rgba(230, 240, 255, 0.4); /* 浅蓝渐变 */
+} 
+
+/* 显示播放器 */ 
+#music-player-overlay.visible { 
+  display: flex; 
+} 
+
+/* 音乐播放器窗口 */ 
+.music-player-window { 
+  width: 82%; 
+  background-color: rgba(245, 250, 255, 0.9); /* 淡蓝冰晶 */
+  backdrop-filter: blur(15px); 
+  -webkit-backdrop-filter: blur(15px); 
+  border-radius: 15px; 
+  box-shadow: 0 8px 32px 0 rgba(140, 180, 235, 0.3); /* 浅蓝阴影 */
+  border: 1px solid rgba(180, 220, 255, 0.5); /* 浅天空蓝 */
+  padding: 15px; 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  color: #4a6fa5; /* 浅钢蓝 */
+  position: relative; 
+} 
+
+/* 播放列表按钮 */ 
+#music-playlist-btn { 
+  position: absolute; 
+  top: 15px; 
+  right: 15px; 
+  font-size: 20px; 
+  cursor: pointer; 
+  color: #5aa9e6; /* 柔天蓝 */
+} 
+
+/* 音乐计时器 */ 
+#music-time-counter { 
+  font-size: 14px; 
+  color: #7d9bbd; /* 蓝灰 */
+  margin-bottom: 18px; 
+} 
+
+/* 歌曲标题 */ 
+#music-player-song-title { 
+  font-size: 18px; 
+  font-weight: 500; 
+  margin-bottom: 5px; 
+  text-align: center; 
+  color: #3e6b9f; /* 深海蓝 */
+} 
+
+/* 歌手名 */ 
+#music-player-artist { 
+  font-size: 12px; 
+  color: #8fa7c4; /* 雾霾蓝 */
+  margin-bottom: 20px; 
+} 
+
+/* 音乐控制按钮 */ 
+.music-controls { 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  gap: 18px; 
+  width: 100%; 
+  margin-bottom: 20px; 
+} 
+
+/* 控制按钮样式 */ 
+.music-controls button { 
+  background: none; 
+  border: none; 
+  font-size: 14px; 
+  font-weight: bold; 
+  cursor: pointer; 
+  color: #9adaff; /* 浅冰蓝 */
+  width: 40px; 
+  height: 40px; 
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  transition: transform 0.2s; 
+} 
+
+/* 按钮点击效果 */ 
+.music-controls button:active { 
+  transform: scale(0.9); 
+} 
+
+/* 播放暂停按钮 */ 
+.music-controls .play-pause-btn { 
+  font-size: 22px; 
+  width: 40px; 
+  height: 40px; 
+  border-radius: 50%; 
+  background-color: rgba(166, 216, 255, 0.253); /* 天蓝微光 */
+} 
+
+/* 底部操作 */ 
+.music-bottom-actions { 
+  display: flex; 
+  justify-content: space-between; 
+  width: 100%; 
+} 
+
+/* 底部按钮样式 */ 
+.music-bottom-actions button { 
+  flex: 1; 
+  padding: 10px 0; 
+  border: none; 
+  border-radius: 8px; 
+  font-size: 14px; 
+  font-weight: 500; 
+  cursor: pointer; 
+  color: #fff; 
+  background-color: #7fbfff; /* 浅钴蓝 */
+  transition: background-color 0.3s ease; 
+} 
+
+.music-bottom-actions button:hover { 
+  background-color: #5aa9e6; /* 天蓝 */
+} 
+
+/* 退出按钮 */ 
+#music-exit-btn { 
+  background-color: rgb(255, 204, 229); /* 柔粉 */
+  color: rgb(255, 255, 255); 
+  margin-right: 5px; 
+} 
+
+/* 返回按钮 */ 
+#music-return-btn { 
+  background-color: rgba(144, 207, 255, 0.7); /* 天蓝透明 */
+  color: white; 
+  margin-left: 5px; 
+} 
+
+/* 播放列表面板 */ 
+#music-playlist-panel { 
+  position: absolute; 
+  bottom: 0; 
+  left: 0; 
+  width: 100%; 
+  height: 70%; 
+  background-color: rgba(242, 247, 255, 0.95); /* 浅蓝白 */
+  backdrop-filter: blur(15px); 
+  -webkit-backdrop-filter: blur(15px); 
+  border-top: 1px solid rgba(180, 220, 255, 0.5); /* 浅天蓝 */
+  border-radius: 20px 20px 0 0; 
+  z-index: 210; 
+  display: flex; 
+  flex-direction: column; 
+  transform: translateY(100%); 
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
+  visibility: hidden; 
+} 
+
+#music-playlist-panel.visible { 
+  transform: translateY(0); 
+  visibility: visible; 
+} 
+
+/* 播放列表头部 */ 
+.playlist-header { 
+  padding: 12px 18px; 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  flex-shrink: 0; 
+  border-bottom: 1px solid rgba(180, 220, 255, 0.5); /* 浅天蓝 */
+  font-weight: 600; 
+  color: #4a6fa5; /* 浅钢蓝 */
+} 
+
+/* 播放列表按钮 */ 
+.playlist-header .panel-btn { 
+  font-size: 14px; 
+  cursor: pointer; 
+  color: #5aa9e6; /* 柔天蓝 */
+} 
+
+/* 播放列表主体 */ 
+.playlist-body { 
+  flex-grow: 1; 
+  overflow-y: auto; 
+  padding: 10px 0; 
+} 
+
+/* 播放列表项 */ 
+.playlist-item { 
+  padding: 10px 20px; 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  cursor: pointer; 
+  border-bottom: 1px solid #e6f0ff; /* 浅天蓝 */
+  transition: background-color 0.3s ease; 
+} 
+
+.playlist-item.playing { 
+  background-color: rgba(122, 191, 255, 0.1); /* 超浅天蓝 */
+} 
+
+/* 歌曲信息 */ 
+.playlist-item-info .title { 
+  font-weight: 500; 
+  font-size: 14px; 
+} 
+
+.playlist-item-info .artist { 
+  font-size: 11px; 
+  color: #8fa7c4; /* 雾霾蓝 */
+} 
+
+/* 删除按钮 */ 
+.playlist-item .delete-track-btn { 
+  color: #ffcef3; /* 淡珊瑚 */
+  font-size: 18px; 
+  padding: 5px; 
+}
 
         /* Persona Library Styles */
         #persona-library-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; padding: 10px; }
