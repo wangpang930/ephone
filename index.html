@@ -46,21 +46,26 @@
   flex-shrink: 0;
 }
 
+/* 像素字体时间 */
 #main-time {
-  font-size: 82px;
-  font-weight: 300;                      /* 调整为中等细体 */
-  font-family: 'Helvetica Neue', Arial, sans-serif; /* 现代字体 */
-  letter-spacing: -3px;                  /* 紧凑排版 */
-  margin-bottom: -5px;                   /* 与日期间距 */
-  line-height: 1;                        /* 紧凑行高 */
+  font-size: 80px;
+  font-weight: 400;
+  font-family: 'Courier New', monospace; /* 像素风格字体 */
+  letter-spacing: 0;
+  margin-bottom: 15px; /* 增加与日期的间距 */
+  line-height: 1;
+  font-smooth: never; /* 禁用抗锯齿 */
+  -webkit-font-smoothing: none; /* Safari支持 */
 }
 
+/* 像素字体日期 */
 #main-date {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 500;
-  font-family: 'SF Pro Display', sans-serif; /* Apple风格字体 */
-  letter-spacing: 1px;
-  opacity: 0.9;                         /* 轻微透明 */
+  font-family: 'Courier New', monospace;
+  letter-spacing: 2px; /* 像素字体通常需要固定间距 */
+  text-transform: uppercase; /* 字母大写更符合像素风格 */
+  margin-top: 10px; /* 增加顶部间距 */
 }
         #app-grid { margin-top: auto; display: flex; flex-direction: column; align-items: center; gap: 20px; width: 100%; padding: 20px; }
         .app-row { display: flex; justify-content: center; gap: 25px; width: 100%; }
