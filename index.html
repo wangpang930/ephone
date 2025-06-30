@@ -2327,9 +2327,9 @@
             <span class="back-btn" id="back-to-list-btn">‹</span>
             <span id="chat-header-title">聊天对象</span>
             <div class="header-actions">
-                <span class="action-btn" id="listen-together-btn" title="一起听"><img src="https://i.postimg.cc/dVTPQR3y/ting.jpg" alt="一起听"></span>
+                <span class="action-btn" id="listen-together-btn" title="一起听"><img src="https://i.postimg.cc/pTWYcNdx/ting.png" alt="一起听"></span>
                 <span class="action-btn" id="chat-settings-btn" title="聊天设置">
-    <img src="https://i.postimg.cc/RVYxzpSm/renshe.jpg" alt="设置">
+    <img src="https://i.postimg.cc/mkqYrty2/renshe.png" alt="设置">
 </span>
             </div>
         </div>
@@ -2358,7 +2358,7 @@
             <textarea id="chat-input" rows="1" placeholder="输入消息..."></textarea>
             <div id="input-actions-wrapper">
                 <button id="wait-reply-btn" title="等待回复">
-    <img src="https://i.postimg.cc/7YhrdryX/fas.jpg" alt="等待回复">
+    <img src="https://i.postimg.cc/bJm0K6Gn/fas.png" alt="等待回复">
 </button>
                 <button id="send-btn" class="action-button">发送</button>
             </div>
@@ -4221,7 +4221,7 @@ ${aiVoiceInstructions}
 
         function returnToChat() { document.getElementById('music-player-overlay').classList.remove('visible'); document.getElementById('music-playlist-panel').classList.remove('visible'); }
 
-        function updateListenTogetherIcon(chatId, forceReset = false) { const iconImg = document.querySelector('#listen-together-btn img'); if(!iconImg) return; if(forceReset || !musicState.isActive || musicState.activeChatId !== chatId) { iconImg.src = 'https://i.postimg.cc/dVTPQR3y/ting.jpg'; iconImg.className = ''; return; } iconImg.src = 'https://i.postimg.cc/NFJFt8Mn/tingj.jpg'; iconImg.classList.add('rotating'); if (musicState.isPlaying) iconImg.classList.remove('paused'); else iconImg.classList.add('paused'); }
+        function updateListenTogetherIcon(chatId, forceReset = false) { const iconImg = document.querySelector('#listen-together-btn img'); if(!iconImg) return; if(forceReset || !musicState.isActive || musicState.activeChatId !== chatId) { iconImg.src = 'https://i.postimg.cc/pTWYcNdx/ting.png'; iconImg.className = ''; return; } iconImg.src = 'https://i.postimg.cc/MHX0xyRF/tingj.png'; iconImg.classList.add('rotating'); if (musicState.isPlaying) iconImg.classList.remove('paused'); else iconImg.classList.add('paused'); }
         window.updateListenTogetherIconProxy = updateListenTogetherIcon;
 
         function updatePlayerUI() { updateListenTogetherIcon(musicState.activeChatId); updateElapsedTimeDisplay(); const titleEl = document.getElementById('music-player-song-title'); const artistEl = document.getElementById('music-player-artist'); const playPauseBtn = document.getElementById('music-play-pause-btn'); if (musicState.currentIndex > -1 && musicState.playlist.length > 0) { const track = musicState.playlist[musicState.currentIndex]; titleEl.textContent = track.name; artistEl.textContent = track.artist; } else { titleEl.textContent = '请添加歌曲'; artistEl.textContent = '...'; } playPauseBtn.textContent = musicState.isPlaying ? '❚❚' : '▶'; }
