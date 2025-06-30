@@ -296,7 +296,24 @@
         .sticker-item { position: relative; aspect-ratio: 1 / 1; background-color: white; border-radius: 10px; background-size: contain; background-repeat: no-repeat; background-position: center; cursor: pointer; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
         .sticker-item .delete-btn { display: none; position: absolute; top: -5px; right: -5px; width: 20px; height: 20px; background-color: #ff3b30; color: white; border-radius: 50%; text-align: center; line-height: 20px; font-size: 14px; cursor: pointer; border: 2px solid white; }
         #input-actions-wrapper { position: static; display: flex; align-items: flex-end; gap: 8px; flex-shrink: 0; }
-        #wait-reply-btn { position: static; bottom: auto; right: auto; width: auto; height: 40px; padding: 0 10px; border-radius: 20px; display: flex; align-items: center; justify-content: center; background-color: rgba(255, 255, 255, 0.6); backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px); border: 1px solid rgba(0,0,0,0.08); box-shadow: 0 2px 5px rgba(0,0,0,0.1); transition: opacity 0.2s, transform 0.1s; cursor: pointer;}
+        #wait-reply-btn {
+    /* ▼▼▼ 新增/修改的属性，让“盒子”隐形 ▼▼▼ */
+    background: none;      /* 1. 去掉背景色 */
+    border: none;          /* 2. 去掉边框 */
+    box-shadow: none;      /* 3. 去掉阴影 */
+    padding: 0;            /* 4. 去掉内边距，让按钮紧贴图片 */
+    backdrop-filter: none; /* 5. 去掉毛玻璃效果 */
+    -webkit-backdrop-filter: none;
+    height: auto;          /* 6. 让高度自动适应图片大小 */
+
+    /* ▼▼▼ 保留的原有属性，它们仍然有用 ▼▼▼ */
+    position: static;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.2s, transform 0.1s;
+    cursor: pointer;
+}
         #wait-reply-btn:hover { opacity: 0.8; }
         #wait-reply-btn:active { transform: scale(0.9); }
         #wait-reply-btn img { height: 22px; display: block; margin: auto; }
